@@ -56,21 +56,44 @@ if 'api_client' not in st.session_state:
     st.session_state.auto_update_running = False
     st.session_state.last_xml = None
     st.session_state.last_fetch_time = None
+    st.session_state.last_request = None
+    st.session_state.last_response = None
+    st.session_state.fetch_error = None
 
 def fetch_events(sport_code, division, date, week=None):
     """Fetch events from NCAA API"""
     with st.spinner('Fetching events from NCAA.com...'):
-        response = st.session_state.api_client.fetch_contests(
-            sport_code=sport_code,
-            division=division,
-            season_year=2025,
-            contest_date=date,
-            week=int(week) if week else None
-        )
-        contests = st.session_state.api_client.parse_contests(response)
-        st.session_state.all_contests = contests
-        st.session_state.last_fetch_time = datetime.now()
-        return contests
+        try:
+            # Store request details for debugging
+            st.session_state.last_request = {
+                'sport': sport_code,
+                'division': division,
+                'date': date,
+                'week': week,
+                'season_year': 2025
+            }
+
+            response = st.session_state.api_client.fetch_contests(
+                sport_code=sport_code,
+                division=division,
+                season_year=2025,
+                contest_date=date,
+                week=int(week) if week else None
+            )
+
+            # Store raw response for debugging
+            st.session_state.last_response = response
+
+            contests = st.session_state.api_client.parse_contests(response)
+            st.session_state.all_contests = contests
+            st.session_state.last_fetch_time = datetime.now()
+            st.session_state.fetch_error = None
+            return contests
+        except Exception as e:
+            st.session_state.fetch_error = str(e)
+            st.session_state.all_contests = []
+            st.error(f"Error fetching events: {e}")
+            return []
 
 def apply_filters(contests, top25_only, conference_filter):
     """Apply filters to contests"""
@@ -259,6 +282,35 @@ with col_main1:
         5. **Click 'Add'** on events to select them
         6. **Generate & Download XML** from the right panel
         """)
+
+    # Debug section
+    if st.session_state.last_request:
+        with st.expander("🔍 Debug Information", expanded=False):
+            st.subheader("Last Request")
+            st.json(st.session_state.last_request)
+
+            if st.session_state.fetch_error:
+                st.error(f"**Error:** {st.session_state.fetch_error}")
+
+            if st.session_state.last_response:
+                st.subheader("API Response Summary")
+                if isinstance(st.session_state.last_response, dict):
+                    if 'data' in st.session_state.last_response:
+                        data = st.session_state.last_response['data']
+                        if 'contests' in data:
+                            st.success(f"✓ API returned {len(data['contests'])} contests")
+                        else:
+                            st.warning("⚠️ No 'contests' key in response data")
+                            st.write("Data keys:", list(data.keys()) if isinstance(data, dict) else type(data))
+                    else:
+                        st.warning("⚠️ No 'data' key in response")
+                        st.write("Response keys:", list(st.session_state.last_response.keys()))
+
+                    with st.expander("📄 Full API Response"):
+                        st.json(st.session_state.last_response)
+                else:
+                    st.error(f"Unexpected response type: {type(st.session_state.last_response)}")
+                    st.write(str(st.session_state.last_response)[:1000])
 
 with col_main2:
     st.header("✅ Selected Events")
