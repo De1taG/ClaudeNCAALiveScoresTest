@@ -15,7 +15,7 @@ if errorlevel 1 (
 
 echo Installing required packages...
 python -m pip install --upgrade pip
-python -m pip install pyinstaller requests
+python -m pip install -r requirements_desktop.txt
 
 echo.
 echo Building executable...
