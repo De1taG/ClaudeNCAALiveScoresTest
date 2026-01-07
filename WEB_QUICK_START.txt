@@ -1,0 +1,115 @@
+================================================================================
+NCAA SPORTS TRACKER - WEB VERSION QUICK START
+================================================================================
+
+FASTEST WAY TO RUN IN YOUR BROWSER:
+================================================================================
+
+STEP 1: Install Streamlit (one-time only)
+
+   pip install streamlit requests
+
+   OR
+
+   pip install -r requirements_web.txt
+
+
+STEP 2: Launch the app
+
+   streamlit run app_streamlit.py
+
+
+STEP 3: Browser opens automatically!
+
+   The app will open at: http://localhost:8501
+
+   If it doesn't open, manually go to that URL in your browser.
+
+
+STEP 4: Start using it!
+
+   - Select sport and division in the sidebar
+   - Click "Fetch Events"
+   - Click "Add" on events you want
+   - Click "Download XML" to save
+
+
+THAT'S IT! 🎉
+
+================================================================================
+ALTERNATIVE METHODS:
+================================================================================
+
+Method 1: Use the launcher script
+   Windows: run_web.bat
+   Mac/Linux: ./run_web.sh
+
+Method 2: Python launcher
+   python run_web.py
+   (will auto-install Streamlit if needed)
+
+================================================================================
+FEATURES YOU'LL LOVE:
+================================================================================
+
+✅ Works in ANY web browser (Chrome, Firefox, Safari, Edge)
+✅ No .exe file needed - runs directly from Python
+✅ Modern, responsive interface
+✅ One-click event selection with buttons
+✅ Live auto-refresh mode
+✅ Direct download from browser
+✅ Mobile-friendly (works on tablets/phones)
+✅ Preview XML before downloading
+✅ Real-time statistics
+
+================================================================================
+TROUBLESHOOTING:
+================================================================================
+
+Problem: "streamlit: command not found"
+Solution: pip install streamlit
+
+Problem: "Port 8501 already in use"
+Solution: streamlit run app_streamlit.py --server.port 8502
+
+Problem: App won't open in browser
+Solution: Manually go to http://localhost:8501
+
+Problem: No events showing
+Solution: Check internet connection, try different date
+
+================================================================================
+NEED MORE HELP?
+================================================================================
+
+Read the full guide: WEB_VERSION_GUIDE.md
+
+This includes:
+- Detailed tutorials
+- Advanced features
+- Use cases and examples
+- Tips and tricks
+- FAQ
+
+================================================================================
+COMPARISON: WEB VS DESKTOP
+================================================================================
+
+Web Version (Streamlit):
+   ✅ Quick to run (no build needed)
+   ✅ Works on any platform
+   ✅ Mobile-friendly
+   ✅ Easy to update
+   ❌ Requires server running
+
+Desktop Version (.exe):
+   ✅ Standalone executable
+   ✅ No server needed
+   ✅ Faster startup
+   ❌ Windows only
+   ❌ Requires build process
+
+Use web version for: Quick testing, development, mobile access
+Use desktop version for: Production, offline use, distribution
+
+================================================================================

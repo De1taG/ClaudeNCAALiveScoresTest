@@ -1,6 +1,10 @@
 # NCAA Sports Tracker
 
-A modern desktop application for tracking and managing NCAA sports events with XML export capabilities.
+A modern application for tracking and managing NCAA sports events with XML export capabilities.
+
+**Available in TWO versions:**
+- 🌐 **Web Version** - Run in your browser (Streamlit) - [Quick Start](#web-version-browser-based)
+- 🖥️ **Desktop Version** - Standalone executable (.exe) - [Quick Start](#desktop-version-executable)
 
 ## Features
 
@@ -18,7 +22,43 @@ A modern desktop application for tracking and managing NCAA sports events with X
 - Python 3.7 or higher
 - Internet connection to fetch NCAA data
 
-## Installation & Building the Executable
+---
+
+## Web Version (Browser-Based)
+
+The easiest way to get started! Run the app in your web browser.
+
+### Quick Start
+
+```bash
+# Install Streamlit (one-time only)
+pip install streamlit requests
+
+# Run the app
+streamlit run app_streamlit.py
+```
+
+Browser opens automatically to http://localhost:8501
+
+### Features
+- ✅ Works in any browser (Chrome, Firefox, Safari, Edge)
+- ✅ No executable build needed
+- ✅ Mobile-friendly interface
+- ✅ One-click event selection
+- ✅ Live auto-refresh mode
+- ✅ Direct download from browser
+
+### Launch Options
+
+**Windows**: Double-click `run_web.bat`
+**Mac/Linux**: `./run_web.sh`
+**Manual**: `streamlit run app_streamlit.py`
+
+**📖 Full Web Guide**: See [WEB_VERSION_GUIDE.md](WEB_VERSION_GUIDE.md) for detailed instructions
+
+---
+
+## Desktop Version (Executable)
 
 ### Quick Build (Windows)
 
@@ -194,15 +234,34 @@ This file is automatically created and updated.
 
 ```
 NCAA_Sports_Tracker/
-├── main_tkinter.py       # Main application (standard tkinter)
-├── ncaa_api.py           # NCAA API client
-├── xml_generator.py      # XML generation logic
-├── config_manager.py     # Configuration management
-├── config.json           # User settings (auto-generated)
-├── build_exe.py          # Build script
-├── build.bat             # Windows build helper
-├── requirements.txt      # Python dependencies
-└── README.md             # This file
+├── Core Files
+│   ├── ncaa_api.py              # NCAA API client
+│   ├── xml_generator.py         # XML generation logic
+│   ├── config_manager.py        # Configuration management
+│   └── config.json              # User settings (auto-generated)
+│
+├── Web Version (Browser)
+│   ├── app_streamlit.py         # Streamlit web app
+│   ├── run_web.py               # Web launcher script
+│   ├── run_web.bat              # Windows web launcher
+│   ├── run_web.sh               # Mac/Linux web launcher
+│   ├── requirements_web.txt     # Web dependencies
+│   ├── WEB_VERSION_GUIDE.md     # Full web guide
+│   └── WEB_QUICK_START.txt      # Quick web start
+│
+├── Desktop Version (Executable)
+│   ├── main_tkinter.py          # Tkinter desktop app
+│   ├── main.py                  # CustomTkinter variant
+│   ├── build_exe.py             # Build script
+│   ├── build.bat                # Windows build helper
+│   ├── NCAA_Sports_Tracker.spec # PyInstaller config
+│   └── requirements.txt         # Desktop dependencies
+│
+├── Documentation
+│   ├── README.md                # This file
+│   ├── QUICK_START.md           # Quick start guide
+│   ├── INSTALLATION.txt         # Installation guide
+│   └── test_app.py              # Test suite
 ```
 
 ## Technical Details
