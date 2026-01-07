@@ -1,0 +1,132 @@
+================================================================================
+NCAA SPORTS TRACKER - INSTALLATION GUIDE
+================================================================================
+
+WINDOWS USERS - EASIEST METHOD
+================================================================================
+
+STEP 1: Check if Python is installed
+   1. Press Windows + R
+   2. Type: cmd
+   3. Press Enter
+   4. Type: python --version
+   5. If you see "Python 3.x.x", you're good!
+   6. If not, download Python from: https://www.python.org/downloads/
+
+STEP 2: Build the application
+   1. Navigate to the NCAA Sports Tracker folder
+   2. Double-click on: build.bat
+   3. Wait 1-2 minutes for it to complete
+   4. A "dist" folder will be created
+
+STEP 3: Run the application
+   1. Open the "dist" folder
+   2. Double-click: NCAA_Sports_Tracker.exe
+   3. That's it! The app should launch
+
+TROUBLESHOOTING:
+   - If build.bat doesn't work, open Command Prompt as Administrator
+   - If you get errors, make sure Python is added to PATH during installation
+   - If network errors occur during build, check your firewall settings
+
+================================================================================
+MAC/LINUX USERS
+================================================================================
+
+STEP 1: Open Terminal
+
+STEP 2: Navigate to the project folder
+   cd /path/to/NCAA_Sports_Tracker
+
+STEP 3: Install dependencies
+   pip3 install requests pyinstaller
+
+STEP 4: Build the application
+   python3 build_exe.py
+
+STEP 5: Run the application
+   ./dist/NCAA_Sports_Tracker
+
+================================================================================
+RUNNING FROM SOURCE (All Platforms)
+================================================================================
+
+If you prefer to run the Python script directly:
+
+1. Install Python 3.7 or higher
+2. Open terminal/command prompt
+3. Navigate to project folder
+4. Run: python main_tkinter.py
+
+This requires Python but doesn't need PyInstaller.
+
+================================================================================
+COMMON ISSUES
+================================================================================
+
+Issue: "Python is not recognized"
+Solution: Install Python from python.org and check "Add to PATH"
+
+Issue: "Permission denied"
+Solution: Run Command Prompt/Terminal as Administrator
+
+Issue: "Module not found"
+Solution: Run: pip install requests
+
+Issue: "Build failed"
+Solution:
+   1. Update pip: python -m pip install --upgrade pip
+   2. Try again: python build_exe.py
+
+Issue: "Executable doesn't run"
+Solution:
+   1. Check antivirus (may flag new .exe files)
+   2. Run from source: python main_tkinter.py
+   3. Try rebuilding with: python build_exe.py --clean
+
+================================================================================
+WHAT'S INCLUDED
+================================================================================
+
+Source Files:
+   - main_tkinter.py      : Main application
+   - ncaa_api.py          : NCAA API client
+   - xml_generator.py     : XML generation
+   - config_manager.py    : Settings management
+
+Build Files:
+   - build.bat            : Windows build script
+   - build_exe.py         : Cross-platform build script
+   - NCAA_Sports_Tracker.spec : PyInstaller configuration
+
+Documentation:
+   - README.md            : Full documentation
+   - QUICK_START.md       : Quick start guide
+   - INSTALLATION.txt     : This file
+
+Testing:
+   - test_app.py          : Test suite
+
+================================================================================
+FIRST RUN
+================================================================================
+
+When you first run the application:
+
+1. It will create a config.json file automatically
+2. The default settings will load (Women's Basketball, Division I)
+3. Click "Fetch Events" to retrieve data
+4. Internet connection is required to fetch NCAA data
+
+================================================================================
+NEED MORE HELP?
+================================================================================
+
+1. Read README.md for full documentation
+2. Check QUICK_START.md for a quick tutorial
+3. Run test_app.py to verify your installation
+4. Make sure you have internet access for fetching NCAA data
+
+================================================================================
+ENJOY TRACKING NCAA SPORTS!
+================================================================================
