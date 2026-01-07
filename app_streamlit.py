@@ -299,6 +299,8 @@ with col_main1:
                         data = st.session_state.last_response['data']
                         if 'contests' in data:
                             st.success(f"✓ API returned {len(data['contests'])} contests")
+                            if len(data['contests']) == 0:
+                                st.warning("⚠️ API returned 0 contests. Try a different date or sport.")
                         else:
                             st.warning("⚠️ No 'contests' key in response data")
                             st.write("Data keys:", list(data.keys()) if isinstance(data, dict) else type(data))
@@ -306,7 +308,9 @@ with col_main1:
                         st.warning("⚠️ No 'data' key in response")
                         st.write("Response keys:", list(st.session_state.last_response.keys()))
 
-                    with st.expander("📄 Full API Response"):
+                    # Show full response with checkbox instead of nested expander
+                    show_full = st.checkbox("Show Full API Response", value=False)
+                    if show_full:
                         st.json(st.session_state.last_response)
                 else:
                     st.error(f"Unexpected response type: {type(st.session_state.last_response)}")
