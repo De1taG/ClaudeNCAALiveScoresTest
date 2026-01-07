@@ -2,6 +2,21 @@
 
 A modern application for tracking and managing NCAA sports events with XML export capabilities.
 
+## 🚀 **Try It Now - Zero Installation!**
+
+**Want to test immediately without installing anything?**
+
+👉 **Deploy to cloud in 2 minutes:** [ZERO_INSTALL.md](ZERO_INSTALL.md)
+
+Options:
+- **Streamlit Cloud** - Free, permanent, shareable URL
+- **Replit** - Quick browser-based demo
+- **GitHub Codespaces** - Full development environment
+
+**No Python, no downloads, just visit a URL!**
+
+---
+
 **Available in TWO versions:**
 - 🌐 **Web Version** - Run in your browser (Streamlit) - [Quick Start](#web-version-browser-based)
 - 🖥️ **Desktop Version** - Standalone executable (.exe) - [Quick Start](#desktop-version-executable)
